@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const items = useSelector((state) => state.cart);
   return (
     <div className="navbar flex justify-between items-center p-4 bg-gray-800 text-white">
       <span className="text-2xl font-bold ml-5">DressStore</span>
@@ -18,7 +20,7 @@ const Navbar = () => {
         <Link to="/cart" className="px-2 py-1 hover:text-gray-200">
           Cart
         </Link>
-        <span className="px-2 py-1">Cart Items: 0</span>
+        <span className="px-2 py-1">Cart Items: {items.length}</span>
       </div>
     </div>
   );
